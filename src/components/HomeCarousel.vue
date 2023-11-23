@@ -1,24 +1,24 @@
 <template>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="carouselExampleFade" class="carousel carousel-home slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item carousel-item-home active">
                 <div class="row">
-                    <div class="col-6 description-col">
+                    <div class="col-6 description-col-home">
                         <h1 class="white-header">Chilaquiles</h1>
                         <p class="white-text">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
                     </div>
-                    <div class="col-6 image-col">
+                    <div class="col-6 image-col-home">
                         <img src="../assets/images/chilaquiles.png" alt="Chilaquiles">
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item carousel-item-home">
                 <div class="row">
-                    <div class="col-6 description-col">
+                    <div class="col-6 description-col-home">
                         <h1 class="white-header">Chilaquiles</h1>
                         <p class="white-text">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
                     </div>
-                    <div class="col-6 image-col">
+                    <div class="col-6 image-col-home">
                         <img src="../assets/images/enchiladas.png" alt="Enchiladas">
                     </div>
                 </div>
@@ -37,31 +37,27 @@
 <script>
 export default {
     name: 'HomeCarousel',
-    components: {
-    }
 }
 </script>
 <style>
-.carousel {
+.carousel-home {
     height: 50vh;
     background-color: black;
 }
 
 .white-header {
     color: white;
-    font-family: 'Roboto', sans-serif;
     font-weight: 900;
 }
 .white-text {
     color: white;
-    font-family: 'Roboto', sans-serif;
 }
 
-.carousel-item {
+.carousel-item-home {
     height: 100%;
 }
 
-.carousel-item img {
+.carousel-item-home img {
     max-height: 500px;
     max-width: 60%;
     margin: 10% 20%;
@@ -71,13 +67,13 @@ export default {
     height: 100%;
 }
 
-.image-col {
+.image-col-home {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.description-col {
+.description-col-home {
     display: flex;
     flex-direction: column;
     justify-content: center;
