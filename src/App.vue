@@ -19,6 +19,5 @@ export default {
 <style>
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: '#F7F3EB';
 }
 </style>
