@@ -1,38 +1,40 @@
 <template>
-    <div id="carouselExampleFade" class="carousel carousel-home slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item carousel-item-home active">
-                <div class="row">
-                    <div class="col-6 description-col-home">
-                        <h1 class="white-header">Chilaquiles</h1>
-                        <p class="white-text">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
+    <section style="background-color: #252525;">
+        <div id="carouselSlide" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" style="height: 50vh;">
+                <div class="carousel-item active" style="height: 50vh;">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <div class="p-5">
+                            <h1 class="text-white">Chilaquiles</h1>
+                            <p class="text-white">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
+                        </div>
+                        <div>
+                            <img class="img-fluid" style="width: 32rem;" src="../assets/images/chilaquiles.png" alt="">
+                        </div>
                     </div>
-                    <div class="col-6 image-col-home">
-                        <img src="../assets/images/chilaquiles.png" alt="Chilaquiles">
+                </div>
+                <div class="carousel-item" style="height: 50vh;">
+                    <div class="d-flex justify-content-center align-items-center h-100">
+                        <div class="p-5">
+                            <h1 class="text-white">Chilaquiles</h1>
+                            <p class="text-white">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
+                        </div>
+                        <div>
+                            <img class="img-fluid" style="width: 32rem;" src="../assets/images/chilaquiles.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item carousel-item-home">
-                <div class="row">
-                    <div class="col-6 description-col-home">
-                        <h1 class="white-header">Chilaquiles</h1>
-                        <p class="white-text">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
-                    </div>
-                    <div class="col-6 image-col-home">
-                        <img src="../assets/images/enchiladas.png" alt="Enchiladas">
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSlide" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselSlide" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+    </section>
 </template>
 <script>
 export default {
@@ -40,51 +42,5 @@ export default {
 }
 </script>
 <style>
-.carousel-home {
-    height: 50vh;
-    background-color: black;
-}
 
-.white-header {
-    color: white;
-    font-weight: 900;
-}
-.white-text {
-    color: white;
-}
-
-.carousel-item-home {
-    height: 100%;
-}
-
-.carousel-item-home img {
-    max-height: 500px;
-    max-width: 60%;
-    margin: 10% 20%;
-}
-
-.col-6 {
-    height: 100%;
-}
-
-.image-col-home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.description-col-home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.row {
-    height: 100%;
-}
-
-.carousel-inner {
-    height: 100%;
-}
 </style>
