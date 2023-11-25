@@ -41,6 +41,6 @@ export default {
     name: 'HomeCarousel',
 }
 </script>
-<style>
+<style scoped>
 
 </style>

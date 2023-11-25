@@ -112,6 +112,6 @@ export default {
     name: 'UserFavorites',
 }
 </script>
-<style>
+<style scoped>
     
 </style>
