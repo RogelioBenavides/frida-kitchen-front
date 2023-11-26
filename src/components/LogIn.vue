@@ -5,7 +5,7 @@
             <p>Si no tienes una cuenta, regístrate <router-link to="/signin">aquí</router-link></p>
             <div class="mb-3">
                 <label class="form-label">Correo Electrónico</label>
-                <input v-model="username" type="email" class="form-control" placeholder="ejemplo@correo.com" required>
+                <input v-model="email" type="email" class="form-control" placeholder="ejemplo@correo.com" required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
@@ -20,14 +20,32 @@
 export default {
     data() {
         return {
-            username: '',
+            email: '',
             password: '',
         }
     },
     methods: {
         onFinish() {
-            alert(this.username + this.password + 'Bienvenido')
-            this.$router.push('/')
+            fetch('http://127.0.0.1:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: this.email,
+                    password: this.password,
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                if(data.access_token){
+                    localStorage.setItem('token', data.access_token)
+                    this.$router.push('/')
+                } else{
+                    alert('Usuario o contraseña incorrectos')
+                }
+            })
         }
     }
 }

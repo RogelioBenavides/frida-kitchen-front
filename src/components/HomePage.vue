@@ -16,6 +16,13 @@ export default {
         NavBar,
         HomeCarousel,
         UserFavorites,
+    },
+    mounted() {
+        if(localStorage.getItem('token')){
+            console.log(localStorage.getItem('token'));
+        } else {
+            this.$router.push('/login')
+        }
     }
 }
 </script>
