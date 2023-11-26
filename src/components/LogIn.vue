@@ -2,6 +2,7 @@
     <img src="../assets/images/frida-logo.png" alt="logo" class="head-logo" />
     <div class="card">
         <form @submit.prevent="onFinish">
+            <p>Si no tienes una cuenta, regístrate <router-link to="/signin">aquí</router-link></p>
             <div class="mb-3">
                 <label class="form-label">Correo Electrónico</label>
                 <input v-model="username" type="email" class="form-control" placeholder="ejemplo@correo.com" required>
@@ -26,6 +27,7 @@ export default {
     methods: {
         onFinish() {
             alert(this.username + this.password + 'Bienvenido')
+            this.$router.push('/')
         }
     }
 }

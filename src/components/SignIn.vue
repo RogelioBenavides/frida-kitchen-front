@@ -2,6 +2,7 @@
     <img src="../assets/images/frida-logo.png" alt="logo" class="head-logo" />
     <div class="card">
         <form @submit.prevent="onFinish">
+            <p>Si ya tienes una cuenta, inicia sesión <router-link to="/login">aquí</router-link></p>
             <div class="mb-3">
                 <label class="form-label">Correo Electrónico</label>
                 <input v-model="username" type="email" class="form-control" placeholder="ejemplo@correo.com" required>
@@ -35,6 +36,7 @@ export default {
             } else{
                 alert('Las contraseñas no coinciden')
             }
+            this.$router.push('/')
         }
     }
 }
