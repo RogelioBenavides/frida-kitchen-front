@@ -1,5 +1,5 @@
 <template>
-    <img src="../assets/frida-logo.png" alt="logo" class="head-logo" />
+    <img src="../assets/images/frida-logo.png" alt="logo" class="head-logo" />
     <div class="card">
         <form @submit.prevent="onFinish">
             <div class="mb-3">
