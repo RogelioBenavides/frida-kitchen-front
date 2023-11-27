@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="title-favorites">Favoritos del Restaurante</h1>
+        <h1 class="text-center py-5">Favoritos del Restaurante</h1>
     </div>
     <div id="carouselExample" class="carousel slide carousel-favorites">
         <div class="carousel-inner">
@@ -42,15 +42,15 @@
                     </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </template>
 <script>
@@ -75,26 +75,6 @@ export default {
     }
 }
 </script>
-<style>
-.title-favorites {
-    margin-top: 50px;
-    text-align: center;
-}
-
-.carousel-favorites {
-    margin: 25px;
-}
-
-.card-img-top-favorites {
-    height: 200px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.center-favorites {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}</style>
+<style scoped>
+    
+</style>
