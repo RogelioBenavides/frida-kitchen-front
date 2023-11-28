@@ -4,6 +4,7 @@ import App from "./App.vue";
 import HomePage from "./components/HomePage.vue";
 import LogIn from "./components/LogIn.vue";
 import SignUp from "./components/SignIn.vue";
+import OrderMenu from "./components/OrderMenu.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -11,6 +12,7 @@ const router = createRouter({
         { path: "/", component: HomePage },
         { path: "/login", component: LogIn },
         { path: "/signin", component: SignUp },
+        { path: "/menu", component: OrderMenu },
     ],
     });
 
