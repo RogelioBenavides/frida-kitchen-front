@@ -15,7 +15,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <router-link to="/menu" class="nav-link">Menu</router-link>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Nosotros</a>
