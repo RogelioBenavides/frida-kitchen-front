@@ -1,0 +1,63 @@
+<template>
+    <NavBar />
+    <section class="py-5 container" style="height: 100vh;">
+        <h1 class="text-center py-5">Menú</h1>
+        <div v-for="meal in meals" :key="meal.id">
+            <div class="mb-5 gap-5 d-flex justify-content-center align-items-center">
+                <div class="row w-75 border border-dark border-1 rounded d-flex justify-content-center align-items-center py-4 px-5"
+                    style="height: 30vh;">
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <img style="width: 20rem;" src="../assets/images/enchiladas.png">
+                    </div>
+                    <div class="col text-center">
+                        <h1 class="m-0">{{ meal.meal_name }}</h1>
+                        <p class="m-0 mb-1">{{ meal.description }}</p>
+                        <p class="m-0 mb-3">${{ meal.price }}</p>
+                        <button class="btn btn-primary">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+import NavBar from './NavBar.vue';
+export default {
+    components: {
+        NavBar
+    },
+    data() {
+        return {
+            meals: [],
+            default_image: '../assets/images/chilaquiles.png',
+        }
+    },
+    computed: {
+        numbers() {
+            let nums = [];
+            console.log(this.meals.size);
+            for (let i = 1; i <= this.meals.size; i += 2) {
+                nums.push(i);
+            }
+            console.log(nums);
+            return nums;
+        }
+    },
+    methods: {
+        loadFavorites() {
+            fetch("http://127.0.0.1:5000/meals/json")
+                .then((response) => response.json())
+                .then((data) => (this.meals = data))
+                .then(() => console.log(this.meals))
+                .catch((error) => console.log(error));
+        }
+    },
+    mounted() {
+        this.loadFavorites();
+    },
+}
+
+</script>
+
+<style scoped></style>
