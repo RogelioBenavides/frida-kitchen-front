@@ -2,6 +2,7 @@
     <NavBar />
     <section class="py-5 container" style="height: 100vh;">
         <h1 class="text-center py-5">Menú</h1>
+        <button @click="deleteShoppingCart">Delete Shopping Cart</button>
         <div v-for="meal in meals" :key="meal.id">
             <div class="mb-5 gap-5 d-flex justify-content-center align-items-center">
                 <div class="row w-75 border border-dark border-1 rounded d-flex justify-content-center align-items-center py-4 px-5"
@@ -13,7 +14,7 @@
                         <h1 class="m-0">{{ meal.meal_name }}</h1>
                         <p class="m-0 mb-1">{{ meal.description }}</p>
                         <p class="m-0 mb-3">${{ meal.price }}</p>
-                        <button class="btn btn-primary">Agregar</button>
+                        <button class="btn btn-primary" @click="addToCart(meal.id)">Agregar</button>
                     </div>
                 </div>
             </div>
@@ -23,6 +24,7 @@
 
 <script>
 import NavBar from './NavBar.vue';
+
 export default {
     components: {
         NavBar
@@ -34,14 +36,8 @@ export default {
         }
     },
     computed: {
-        numbers() {
-            let nums = [];
-            console.log(this.meals.size);
-            for (let i = 1; i <= this.meals.size; i += 2) {
-                nums.push(i);
-            }
-            console.log(nums);
-            return nums;
+        shoppingCart() {
+            return this.$store.state.shoppingCart
         }
     },
     methods: {
@@ -51,6 +47,12 @@ export default {
                 .then((data) => (this.meals = data))
                 .then(() => console.log(this.meals))
                 .catch((error) => console.log(error));
+        },
+        addToCart(mealId) {
+            this.$emit('addToCart', mealId)
+        },
+        deleteShoppingCart() {
+            this.$emit('deleteShoppingCart')
         }
     },
     mounted() {
