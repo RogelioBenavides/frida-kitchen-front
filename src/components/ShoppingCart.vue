@@ -44,10 +44,16 @@ export default {
             product: {
                 description: "Comida sabrosa de Frida Kitchen",
                 img: "./assets/images/chilaquiles.jpg0"
-            }
+            },
+            payment: {},
         }
     },
     methods: {
+        saveOrder(){
+            console.log(this.cart);
+            console.log(this.payment);
+            console.log(localStorage.getItem('user'));
+        },
         showCart() {
             console.log(this.shoppingCart)
         },
@@ -100,23 +106,31 @@ export default {
 
                         this.paidFor = true;
 
-                        console.log({cart: JSON.parse(JSON.stringify(this.cart)), payment: order, user: localStorage.getItem('user')});
-                        fetch('http://http://35.209.86.116:5002/orders', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                cart: JSON.parse(JSON.stringify(this.cart)),
-                                payment: order,
-                                user: localStorage.getItem('user')
-                            })
-                        })
-                            .then((response) => response.json())
-                            .then((data) => {
-                                console.log(data);
-                            })
-                            .catch((error) => console.log(error));
+                        console.log("Hello There")
+
+                        this.payment = order;
+
+                        this.saveOrder();
+
+                        // console.log({cart: JSON.parse(JSON.stringify(this.cart)), payment: order, user: localStorage.getItem('user')});
+                        
+                        // fetch('http://http://35.209.86.116:5002/orders', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         'Content-Type': 'application/json',
+                        //     },
+                        //     body: JSON.stringify({
+                        //         cart: this.cart,
+                        //         payment: order,
+                        //         user: localStorage.getItem('user')
+                        //     })
+                        // })
+                        //     .then((response) => response.json())
+                        //     .then((data) => {
+                        //         console.log("Success:", data);
+                        //         console.log(data);
+                        //     })
+                        //     .catch((error) => console.log("Error en el fetch", error));
                     },
                     onError: err => {
                         console.log(err);
