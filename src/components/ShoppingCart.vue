@@ -6,11 +6,11 @@
             <button class="btn btn-outline-secondary" @click="showCart">Hello There</button>
         </div>
         <center>
-        <div class="d-flex justify-content-evenly align-items-center p-3 border border-dark border-1 rounded mb-3 w-75" v-for="item in cart" :key="item.key">
+        <div class="d-flex justify-content-evenly align-items-center p-3 border border-dark border-1 rounded mb-3 w-75" v-for="item in cart" :key="item.id">
             <img class="py-3 my-auto" :src="item.image_url" style="width: 4rem;">
             <h3 class="my-auto text-center" style="width: 15%;">{{ item.meal_name }}</h3>
             <p class="my-auto text-center" style="width: 15%;">{{ item.quantity }} x {{ item.price }} = {{ item.quantity * item.price }}</p>
-            <button class="btn" @click="deleteElementFromCart(item.key)">
+            <button class="btn" @click="deleteElementFromCart(item.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
                     <path fill="#fc4646" d="M12 4c-4.419 0-8 3.582-8 8s3.581 8 8 8s8-3.582 8-8s-3.581-8-8-8zm3.707 10.293a.999.999 0 1 1-1.414 1.414L12 13.414l-2.293 2.293a.997.997 0 0 1-1.414 0a.999.999 0 0 1 0-1.414L10.586 12L8.293 9.707a.999.999 0 1 1 1.414-1.414L12 10.586l2.293-2.293a.999.999 0 1 1 1.414 1.414L13.414 12l2.293 2.293z"/>
                 </svg>
@@ -42,14 +42,18 @@ export default {
         },
         deleteElementFromCart(mealId) {
             this.$emit('deleteElementFromCart', mealId)
+            this.cart = [];
+            this.total = 0;
+            this.createCart();
         },
         createCart() {
             console.log("General Kenobi")
             for (let [key, value] of this.shoppingCart) {
-                fetch(`http://127.0.0.1:5000/meals/${key}`)
+                fetch(`http://127.0.0.1:5000/meal/${key}`)
                     .then((response) => response.json())
                     .then((data) => {
                         this.cart.push({
+                            id: key,
                             meal_name: data[0].meal_name, 
                             price: data[0].price, 
                             quantity: value,
