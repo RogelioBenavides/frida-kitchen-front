@@ -21,7 +21,9 @@
             </div>
         </center>
         <h1 class="text-end py-3" style="margin-right: 12rem; margin-top: 3rem;">Total = {{ total }}</h1>
-        <div ref="paypal"></div>
+        <center>
+            <div ref="paypal"></div>
+        </center>
     </section>
 </template>
 <script>
@@ -53,6 +55,17 @@ export default {
             console.log(this.cart);
             console.log(this.payment);
             console.log(localStorage.getItem('user'));
+            fetch('http://35.209.86.116:5002/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id_user: localStorage.getItem('user'),
+                    order: this.cart,
+                    payment: this.payment,
+                })
+            })
         },
         showCart() {
             console.log(this.shoppingCart)
@@ -106,31 +119,10 @@ export default {
 
                         this.paidFor = true;
 
-                        console.log("Hello There")
-
                         this.payment = order;
 
                         this.saveOrder();
 
-                        // console.log({cart: JSON.parse(JSON.stringify(this.cart)), payment: order, user: localStorage.getItem('user')});
-                        
-                        // fetch('http://http://35.209.86.116:5002/orders', {
-                        //     method: 'POST',
-                        //     headers: {
-                        //         'Content-Type': 'application/json',
-                        //     },
-                        //     body: JSON.stringify({
-                        //         cart: this.cart,
-                        //         payment: order,
-                        //         user: localStorage.getItem('user')
-                        //     })
-                        // })
-                        //     .then((response) => response.json())
-                        //     .then((data) => {
-                        //         console.log("Success:", data);
-                        //         console.log(data);
-                        //     })
-                        //     .catch((error) => console.log("Error en el fetch", error));
                     },
                     onError: err => {
                         console.log(err);
