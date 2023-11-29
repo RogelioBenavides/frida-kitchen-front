@@ -41,6 +41,24 @@
                         </div>
                     </div>
                 </div>
+            </div><div class="carousel-item">
+                <div class="container">
+                    <div class="row">
+                        <div v-for="dish in favorites.slice(5, 8)" :key="dish.id"  class="col-4 center-favorites">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-img-top-favorites">
+                                    <img src="../assets/images/chilaquiles.png" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ dish.meal_name }}</h5>
+                                    <p class="card-text">{{ dish.description }}</p>
+                                    <p class="card-text">${{ dish.price }}</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,7 +82,7 @@ export default {
     },
     methods: {
         loadFavorites() {
-            fetch("http://35.209.86.116:5000/meals/json")
+            fetch("http://35.209.86.116:5000/meals/favorites")
                 .then((response) => response.json())
                 .then((data) => (this.favorites = data))
                 .catch((error) => console.log(error));
