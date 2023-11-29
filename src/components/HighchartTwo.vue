@@ -1,25 +1,26 @@
 <template>
     <section class="container">
-        <div id="chart-container1" style="height: 400px;"></div>
+        <div id="chart-container2" style="height: 400px;"></div>
     </section>
 </template>
 
 <script>
+    import Highcharts from 'highcharts';
     export default {
         mounted(){
-            fetch('http://35.209.34.53:5000/graph/1')
+            fetch('http://35.209.34.53:5000/graph/3')
                 .then(response => response.json())
                 .then(data => {
 
-                    const truckIds = data.map(item => item.truck_id);
-                    const averageDistances = data.map(item => item.average_distance);
+                    var truckIds = data.map(item => item.truck_id);
+                    var totalTrips = data.map(item => item.total_trips);
 
-                    Highcharts.chart('chart-container1', {
+                    Highcharts.chart('chart-container2', {
                         chart: {
                             type: 'column'
                         },
                         title: {
-                            text: 'Average Distance Traveled by Truck'
+                            text: 'Total Trips by Truck'
                         },
                         xAxis: {
                             categories: truckIds,
@@ -28,18 +29,21 @@
                             }
                         },
                         yAxis: {
+                            min: 0,
                             title: {
-                                text: 'Average Distance'
+                                text: 'Total Trips'
                             }
                         },
                         series: [{
-                            name: 'Average Distance',
-                            data: averageDistances
+                            name: 'Total Trips',
+                            data: totalTrips
                         }]
                     });
                 })
-                .catch(error => console.error('Error fetching data:', error));
-            }
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
     }
 </script>
 
