@@ -101,6 +101,22 @@ export default {
                         this.paidFor = true;
 
                         console.log({cart: JSON.parse(JSON.stringify(this.cart)), payment: order, user: localStorage.getItem('user')});
+                        fetch('http://http://35.209.86.116:5002/orders', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                cart: JSON.parse(JSON.stringify(this.cart)),
+                                payment: order,
+                                user: localStorage.getItem('user')
+                            })
+                        })
+                            .then((response) => response.json())
+                            .then((data) => {
+                                console.log(data);
+                            })
+                            .catch((error) => console.log(error));
                     },
                     onError: err => {
                         console.log(err);
