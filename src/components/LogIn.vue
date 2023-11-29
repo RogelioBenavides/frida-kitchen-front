@@ -30,7 +30,7 @@ export default {
     },
     methods: {
         onFinish() {
-            fetch('http://127.0.0.1:5001/login', {
+            fetch('http://35.209.86.116:5001/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

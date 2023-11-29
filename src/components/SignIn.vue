@@ -51,7 +51,7 @@ export default {
                 alert('Las contraseñas no coinciden')
                 return
             }
-            fetch('http://127.0.0.1:5000/users/frontAdd', {
+            fetch('http://35.209.86.116:5000/users/frontAdd', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

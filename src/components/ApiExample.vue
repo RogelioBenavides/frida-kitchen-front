@@ -20,7 +20,7 @@
         },
     
         created() {
-            fetch("http://127.0.0.1:5000/meals/json")
+            fetch("http://35.209.86.116:5000/meals/json")
                 .then((response) => response.json())
                 .then((data) => (this.posts = data));
         }
