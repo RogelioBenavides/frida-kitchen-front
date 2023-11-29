@@ -1,11 +1,24 @@
 <template>
     <NavBar></NavBar>
-    <button @click="showCart">Hello There</button>
-    <div v-for="item in cart" :key="item.key">
-        <p>{{ item.meal_name }} -> {{ item.price }} -> {{ item.quantity }}</p>
-        <button @click="deleteElementFromCart(item.key)">Delete</button>
-    </div>
-    <h1>Total {{ total }}</h1>
+    <section class="container py-5">
+        <div class="d-flex flex-column justify-content-center align-items-center text-center py-5">
+            <h1 class="text-center">Carrito</h1>
+            <button class="btn btn-outline-secondary" @click="showCart">Hello There</button>
+        </div>
+        <center>
+        <div class="d-flex justify-content-evenly align-items-center p-3 border border-dark border-1 rounded mb-3 w-75" v-for="item in cart" :key="item.key">
+            <img class="py-3 my-auto" :src="item.image_url" style="width: 4rem;">
+            <h3 class="my-auto text-center" style="width: 15%;">{{ item.meal_name }}</h3>
+            <p class="my-auto text-center" style="width: 15%;">{{ item.quantity }} x {{ item.price }} = {{ item.quantity * item.price }}</p>
+            <button class="btn" @click="deleteElementFromCart(item.key)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
+                    <path fill="#fc4646" d="M12 4c-4.419 0-8 3.582-8 8s3.581 8 8 8s8-3.582 8-8s-3.581-8-8-8zm3.707 10.293a.999.999 0 1 1-1.414 1.414L12 13.414l-2.293 2.293a.997.997 0 0 1-1.414 0a.999.999 0 0 1 0-1.414L10.586 12L8.293 9.707a.999.999 0 1 1 1.414-1.414L12 10.586l2.293-2.293a.999.999 0 1 1 1.414 1.414L13.414 12l2.293 2.293z"/>
+                </svg>
+            </button>
+        </div>
+        </center>
+        <h1 class="text-end py-3" style="margin-right: 12rem; margin-top: 3rem;">Total = {{ total }}</h1>
+    </section>
 </template>
 <script>
 import NavBar from './NavBar.vue';
@@ -33,16 +46,20 @@ export default {
         createCart() {
             console.log("General Kenobi")
             for (let [key, value] of this.shoppingCart) {
-                fetch(`http://127.0.0.1:5000/meal/${key}`)
+                fetch(`http://127.0.0.1:5000/meals/${key}`)
                     .then((response) => response.json())
                     .then((data) => {
-                        console.log(data)
-                        this.cart.push({meal_name: data[0].meal_name, price: data[0].price, quantity: value} )
+                        this.cart.push({
+                            meal_name: data[0].meal_name, 
+                            price: data[0].price, 
+                            quantity: value,
+                            image_url: data[0].image_url,
+                        });
+
                         this.total += data[0].price * value
                     })
                     .catch((error) => console.log(error));
             }
-
         }
     },
     mounted() {

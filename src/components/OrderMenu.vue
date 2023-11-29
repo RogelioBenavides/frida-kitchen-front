@@ -1,10 +1,12 @@
 <template>
     <NavBar />
-    <section class="py-5 container" style="height: 100vh;">
-        <h1 class="text-center py-5">Menú</h1>
-        <button @click="deleteShoppingCart">Delete Shopping Cart</button>
+    <section class="py-5 container">
+        <div class="d-flex flex-column justify-content-center align-items-center text-center py-5">
+            <h1 class="">Menú</h1>
+            <button class="btn btn-outline-secondary" @click="deleteShoppingCart">Delete Shopping Cart</button>
+        </div>
         <div v-for="meal in meals" :key="meal.id">
-            <div class="mb-5 gap-5 d-flex justify-content-center align-items-center">
+            <div class="mb-5 d-flex justify-content-center align-items-center">
                 <div class="row w-75 border border-dark border-1 rounded d-flex justify-content-center align-items-center py-4 px-5"
                     style="height: 30vh;">
                     <div class="col d-flex justify-content-center align-items-center">
