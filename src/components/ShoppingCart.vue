@@ -100,7 +100,7 @@ export default {
 
                         this.paidFor = true;
 
-                        console.log(order);
+                        console.log({cart, payment: order, user: localStorage.getItem('user')});
                     },
                     onError: err => {
                         console.log(err);

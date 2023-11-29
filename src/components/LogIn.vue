@@ -44,8 +44,9 @@ export default {
             .then(data => {
                 console.log('Success:', data);
                 if(data.access_token){
-                    localStorage.setItem('token', data.access_token)
-                    this.$router.push('/')
+                    localStorage.setItem('user', data.user);
+                    localStorage.setItem('token', data.access_token);
+                    this.$router.push('/');
                 } else{
                     alert('Usuario o contraseña incorrectos')
                 }
