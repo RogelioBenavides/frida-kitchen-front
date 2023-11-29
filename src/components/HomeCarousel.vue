@@ -16,11 +16,11 @@
                 <div class="carousel-item" style="height: 50vh;">
                     <div class="d-flex justify-content-center align-items-center h-100">
                         <div class="p-5">
-                            <h1 class="text-white">Chilaquiles</h1>
-                            <p class="text-white">Chilaquiles con salsa verde o roja, acompañados de frijoles y huevo al gusto.</p>
+                            <h1 class="text-white">Enchiladas</h1>
+                            <p class="text-white">Enchiladas con salsa verde o roja, acompañados de frijoles.</p>
                         </div>
                         <div>
-                            <img class="img-fluid" style="width: 32rem;" src="../assets/images/chilaquiles.png" alt="">
+                            <img class="img-fluid" style="width: 32rem;" src="../assets/images/enchiladas.png" alt="">
                         </div>
                     </div>
                 </div>

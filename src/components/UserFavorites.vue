@@ -82,7 +82,7 @@ export default {
     },
     methods: {
         loadFavorites() {
-            fetch("http://35.209.86.116:5000/meals/favorites")
+            fetch("http://35.209.86.116:5006/meals/favorites")
                 .then((response) => response.json())
                 .then((data) => (this.favorites = data))
                 .catch((error) => console.log(error));
