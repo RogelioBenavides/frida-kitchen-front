@@ -46,13 +46,23 @@ export default {
                 if(data.access_token){
                     localStorage.setItem('user', data.user);
                     localStorage.setItem('token', data.access_token);
-                    this.$router.push('/');
+                    localStorage.setItem('role', data.access_token);
+                    if(data.role == 'manager'){
+                        this.$router.push('/supervisor');
+                    } else{
+                        this.$router.push('/');
+                    }
                 } else{
                     alert('Usuario o contraseña incorrectos')
                 }
             })
         }
-    }
+    },
+    mounted() {
+        if(localStorage.getItem('role') != "manager"){
+            this.$router.push('/');
+        }
+    },
 }
 </script>
 
