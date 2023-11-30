@@ -42,18 +42,6 @@
     </nav>
 </template>
 <script>
-<<<<<<< Updated upstream
-export default {
-    methods: {
-        logout() {
-            localStorage.removeItem('token')
-            localStorage.removeItem('role')
-            localStorage.removeItem('user')
-            this.$router.push('/login')
-        }
-    }
-}
-=======
     export default {
         methods: {
             logout() {
@@ -92,6 +80,5 @@ export default {
             this.restoreLinkActivation();
         },
     };
->>>>>>> Stashed changes
 </script>
 <style></style>
