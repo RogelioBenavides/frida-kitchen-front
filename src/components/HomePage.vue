@@ -1,8 +1,8 @@
 <template>
     <div>
-        <NavBar></NavBar>
-        <HomeCarousel></HomeCarousel>
-        <UserFavorites></UserFavorites>
+        <NavBar @linkActivated="handleLinkActivation" :isHomeActive="isHomeActive" :isMenuActive="isMenuActive" :isOrderActive="isOrderActive"/>
+        <HomeCarousel />
+        <UserFavorites />
     </div>
 </template>
 <script>
@@ -23,7 +23,7 @@ export default {
         } else {
             this.$router.push('/login')
         }
-    }
+    },
 }
 </script>
 <style scoped>

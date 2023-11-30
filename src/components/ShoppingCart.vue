@@ -1,5 +1,5 @@
 <template>
-    <NavBar></NavBar>
+    <NavBar />
     <section class="container py-5">
         <div class="d-flex flex-column justify-content-center align-items-center text-center py-5">
             <h1 class="text-center">Carrito</h1>

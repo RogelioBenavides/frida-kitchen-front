@@ -12,13 +12,13 @@
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav w-100 d-flex justify-content-evenly align-items-center">
                     <li class="nav-item mx-5">
-                        <router-link to="/" class="nav-link">Inicio</router-link>
+                        <router-link to="/" class="nav-link" :class="{ 'active fw-semibold': isHomeActive}" @click="handleLinkActivation('home')">Inicio</router-link>
                     </li>
                     <li class="nav-item mx-5">
-                        <router-link to="/menu" class="nav-link">Menu</router-link>
+                        <router-link to="/menu" class="nav-link" :class="{ 'active fw-semibold': isMenuActive}" @click="handleLinkActivation('menu')">Menu</router-link>
                     </li>
                     <li class="nav-item mx-5">
-                        <router-link to="/orders" class="nav-link">Órdenes</router-link>
+                        <router-link to="/orders" class="nav-link" :class="{ 'active fw-semibold': isOrderActive}" @click="handleLinkActivation('orders')">Órdenes</router-link>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex justify-content-center align-items-center" style="width: 3%;">
@@ -42,6 +42,7 @@
     </nav>
 </template>
 <script>
+<<<<<<< Updated upstream
 export default {
     methods: {
         logout() {
@@ -52,5 +53,45 @@ export default {
         }
     }
 }
+=======
+    export default {
+        methods: {
+            logout() {
+            localStorage.removeItem('token');
+            this.$router.push('/login');
+            },
+            handleLinkActivation(page) {
+            this.isHomeActive = page === 'home';
+            this.isMenuActive = page === 'menu';
+            this.isOrderActive = page === 'orders';
+
+            localStorage.setItem('activeLinks', JSON.stringify({
+                isHomeActive: this.isHomeActive,
+                isMenuActive: this.isMenuActive,
+                isOrderActive: this.isOrderActive,
+            }));
+            },
+            restoreLinkActivation() {
+                const storedState = localStorage.getItem('activeLinks');
+                if (storedState) {
+                    const { isHomeActive, isMenuActive, isOrderActive } = JSON.parse(storedState);
+                    this.isHomeActive = isHomeActive;
+                    this.isMenuActive = isMenuActive;
+                    this.isOrderActive = isOrderActive;
+                }
+            },
+        },
+        data() {
+            return {
+            isHomeActive: false,
+            isMenuActive: false,
+            isOrderActive: false,
+            };
+        },
+        mounted() {
+            this.restoreLinkActivation();
+        },
+    };
+>>>>>>> Stashed changes
 </script>
 <style></style>
