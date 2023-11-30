@@ -78,7 +78,6 @@ export default {
             this.createCart();
         },
         createCart() {
-            console.log("General Kenobi")
             for (let [key, value] of this.shoppingCart) {
                 fetch(`http://35.209.86.116:5006/meals/${key}`)
                     .then((response) => response.json())
