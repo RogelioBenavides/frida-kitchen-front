@@ -12,6 +12,7 @@
                             <p v-if="meal.price != null && meal.quantity != null">{{meal.price}} x {{meal.quantity}} = {{meal.price * meal.quantity}}</p>
                         </div>
                     </div>
+                    <router-link to="/tracking">Inicio</router-link>
                 </div>
             </div>
         </div>
