@@ -49,7 +49,7 @@ import NavBar from "./NavBar.vue";
 
             onMounted(async () => {
                 try {
-                    const response = await fetch('http://127.0.0.1:5005/coords');
+                    const response = await fetch('http://35.209.86.116:5004/coords');
                     data = await response.json(); // Asignar data aquí
 
                     // Agregar marcadores uno por uno con intervalos de tiempo
