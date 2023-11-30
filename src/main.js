@@ -8,6 +8,7 @@ import OrderMenu from "./components/OrderMenu.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
 import SupervisorTables from "./components/SupervisorTables.vue";
 import UserOrders from "./components/UserOrders.vue";
+import TrackingMap from "./components/TrackingMap.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,6 +20,7 @@ const router = createRouter({
         { path: "/cart", component: ShoppingCart },
         { path: "/supervisor", component: SupervisorTables },
         { path: "/orders", component: UserOrders },
+        { path: "/tracking", component: TrackingMap },
         { path: "/:pathMatch(.*)*", redirect: "/"}
     ],
     });
