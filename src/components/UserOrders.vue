@@ -1,14 +1,15 @@
 <template>
     <NavBar></NavBar>
     <h1>Órdenes</h1>
-    <div v-for="(order, index) in orders[0]" :key="index">
-        <p>{{ order }}</p>
-        <!-- <h2>{{order.id}}</h2>
-        <div v-for="(meal, index) in order.meals" :key="index">
-            <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
-            <p v-if="meal.price != null">{{meal.price}}</p>
-            <p v-if="meal.quantity != null">{{meal.quantity}}</p>
-        </div> -->
+    <div v-for="(order, index) in orders" :key="index">
+        <div v-for="o in order" :key="o.id">
+            <h2>{{o.id}}</h2>
+            <div v-for="(meal, index) in o.meals" :key="index">
+                <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
+                <p v-if="meal.price != null">{{meal.price}}</p>
+                <p v-if="meal.quantity != null">{{meal.quantity}}</p>
+            </div>
+        </div>
     </div>
 </template>
 <script>
