@@ -3,11 +3,12 @@
     <h1>Órdenes</h1>
     <div v-for="(order, index) in orders" :key="index">
         <h2>{{order.id}}</h2>
-        <div v-for="(meal, index) in order.meals" :key="index">
+        <p>{{ order }}</p>
+        <!-- <div v-for="(meal, index) in order.meals" :key="index">
             <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
             <p v-if="meal.price != null">{{meal.price}}</p>
             <p v-if="meal.quantity != null">{{meal.quantity}}</p>
-        </div>
+        </div> -->
     </div>
 </template>
 <script>
