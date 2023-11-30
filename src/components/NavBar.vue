@@ -18,7 +18,7 @@
                         <router-link to="/menu" class="nav-link">Menu</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <router-link to="/orders" class="nav-link">Órdenes</router-link>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex justify-content-evenly align-items-center">

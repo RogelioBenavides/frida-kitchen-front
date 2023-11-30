@@ -8,6 +8,7 @@
                 <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
                 <p v-if="meal.price != null">{{meal.price}}</p>
                 <p v-if="meal.quantity != null">{{meal.quantity}}</p>
+                <router-link to="/tracking">Inicio</router-link>
             </div>
         </div>
     </div>
