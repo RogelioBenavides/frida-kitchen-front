@@ -10,7 +10,7 @@
                         <div v-for="dish in favorites.slice(0, 3)" :key="dish.id"  class="col-4 center-favorites">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-img-top-favorites">
-                                    <img src="../assets/images/chilaquiles.png" class="card-img-top" alt="...">
+                                    <img :src="dish.image_url" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ dish.meal_name }}</h5>
@@ -26,10 +26,10 @@
             <div class="carousel-item">
                 <div class="container">
                     <div class="row">
-                        <div v-for="dish in favorites.slice(3, 5)" :key="dish.id"  class="col-4 center-favorites">
+                        <div v-for="dish in favorites.slice(3, 6)" :key="dish.id"  class="col-4 center-favorites">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-img-top-favorites">
-                                    <img src="../assets/images/chilaquiles.png" class="card-img-top" alt="...">
+                                    <img :src="dish.image_url" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ dish.meal_name }}</h5>
@@ -44,10 +44,10 @@
             </div><div class="carousel-item">
                 <div class="container">
                     <div class="row">
-                        <div v-for="dish in favorites.slice(5, 8)" :key="dish.id"  class="col-4 center-favorites">
+                        <div v-for="dish in favorites.slice(6, 9)" :key="dish.id"  class="col-4 center-favorites">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-img-top-favorites">
-                                    <img src="../assets/images/chilaquiles.png" class="card-img-top" alt="...">
+                                    <img :src="dish.image_url" class="card-img-top" alt="...">
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ dish.meal_name }}</h5>

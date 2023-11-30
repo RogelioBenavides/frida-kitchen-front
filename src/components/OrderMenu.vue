@@ -10,7 +10,7 @@
                 <div class="row w-75 border border-dark border-1 rounded d-flex justify-content-center align-items-center py-4 px-5"
                     style="height: 30vh;">
                     <div class="col d-flex justify-content-center align-items-center">
-                        <img style="width: 20rem;" src="../assets/images/enchiladas.png">
+                        <img style="width: 20rem;" :src="meal.image_url">
                     </div>
                     <div class="col text-center">
                         <h1 class="m-0">{{ meal.meal_name }}</h1>
