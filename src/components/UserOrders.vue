@@ -1,6 +1,14 @@
 <template>
     <NavBar></NavBar>
     <h1>Órdenes</h1>
+    <div v-for="(order, index) in orders" :key="index">
+        <h2>{{order.id}}</h2>
+        <div v-for="(meal, index) in order.meals" :key="index">
+            <h3>{{meal.meal_name}}</h3>
+            <p>{{meal.price}}</p>
+            <p>{{meal.quantity}}</p>
+        </div>
+    </div>
 </template>
 <script>
 import NavBar from './NavBar.vue';
