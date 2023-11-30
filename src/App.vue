@@ -1,5 +1,5 @@
 <template>
-	<router-view @addTo-cart="addToCart" :shoppingCart="shoppingCart" @deleteElementFromCart="deleteElementFromCart"></router-view>
+	<router-view @addTo-cart="addToCart" @deleteShoppingCart="deleteShoppingCart" :shoppingCart="shoppingCart" @deleteElementFromCart="deleteElementFromCart"></router-view>
 </template>
 
 <script>
@@ -24,6 +24,9 @@
 					this.shoppingCart.delete(mealId)
 				}
 			},
+			deleteShoppingCart() {
+				this.shoppingCart = new Map()
+			}
 		}
 	}
 </script>

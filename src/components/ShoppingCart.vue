@@ -66,6 +66,8 @@ export default {
                     payment: this.payment,
                 })
             })
+            this.deleteShoppingCart();
+            this.$router.push('/orders');
         },
         showCart() {
             console.log(this.shoppingCart)
@@ -93,6 +95,9 @@ export default {
                     })
                     .catch((error) => console.log(error));
             }
+        },
+        deleteShoppingCart() {
+            this.$emit('deleteShoppingCart')
         },
         setLoaded: function () {
             this.loaded = true;
