@@ -29,6 +29,7 @@
         </div>
     </div>
 </template>
+
 <script>
 import HighchartOne from './HighchartOne.vue';
 import HighchartTwo from './HighchartTwo.vue';
