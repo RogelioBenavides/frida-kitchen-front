@@ -21,9 +21,10 @@
             </div>
         </center>
         <h1 class="text-end py-3" style="margin-right: 12rem; margin-top: 3rem;">Total = {{ total }}</h1>
-        <center>
-            <div ref="paypal"></div>
-        </center>
+        
+        <div class="py-5 d-flex justify-content-center align-items-center">
+            <div class="w-50" ref="paypal"></div>
+        </div>
     </section>
 </template>
 <script>
