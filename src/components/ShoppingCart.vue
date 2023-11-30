@@ -65,9 +65,10 @@ export default {
                     order: this.cart,
                     payment: this.payment,
                 })
+            }).then(() => {
+                this.deleteShoppingCart();
+                this.$router.push('/orders');
             })
-            this.deleteShoppingCart();
-            this.$router.push('/orders');
         },
         showCart() {
             console.log(this.shoppingCart)
