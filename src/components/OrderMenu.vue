@@ -1,22 +1,24 @@
 <template>
     <NavBar />
     <section class="py-5 container">
-        <div class="d-flex flex-column justify-content-center align-items-center text-center py-5">
-            <h1 class="">Menú</h1>
-            <button class="btn btn-outline-secondary" @click="deleteShoppingCart">Delete Shopping Cart</button>
+        <div class="d-flex flex-column justify-content-center align-items-center text-center pb-2">
+            <h1>Menu</h1>
         </div>
-        <div v-for="meal in meals" :key="meal.id">
-            <div class="mb-5 d-flex justify-content-center align-items-center">
-                <div class="row w-75 border border-dark border-1 rounded d-flex justify-content-center align-items-center py-4 px-5"
-                    style="height: 30vh;">
-                    <div class="col d-flex justify-content-center align-items-center">
-                        <img style="width: 20rem;" :src="meal.image_url">
+        <div class="row">
+            <div class="col mb-5" v-for="meal in meals" :key="meal.id">
+                <div class="card border-0 shadow h-100" style="width: 25rem;">
+                    <div class="d-flex justify-content-center" style="height: 40%;">
+                        <img class="card-img-top img-fluid w-75 p-2 m-auto" :src="meal.image_url">
                     </div>
-                    <div class="col text-center">
-                        <h1 class="m-0">{{ meal.meal_name }}</h1>
-                        <p class="m-0 mb-1">{{ meal.description }}</p>
-                        <p class="m-0 mb-3">${{ meal.price }}</p>
-                        <button class="btn btn-primary" @click="addToCart(meal.id)">Agregar</button>
+                    <div class="text-center pt-2" style="height: 60%;">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ meal.meal_name }}</h3>
+                            <p class="card-text">{{ meal.description }}</p>
+                            <p class="card-text">${{ meal.price }}</p>   
+                        </div>
+                    </div>
+                    <div class="w-100" style="height: 10%;">
+                        <button class="btn btn-primary w-100" @click="addToCart(meal.id)">Agregar</button>
                     </div>
                 </div>
             </div>
@@ -53,9 +55,6 @@ export default {
         addToCart(mealId) {
             this.$emit('addToCart', mealId)
         },
-        deleteShoppingCart() {
-            this.$emit('deleteShoppingCart')
-        }
     },
     mounted() {
         this.loadFavorites();

@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top shadow" style="background-color: white;">
         <div class="container">
             <router-link to="/" class="navbar-brand">
                 <img src="../assets/images/frida-logo.png" alt="Logo" width="50" height="50"
@@ -11,23 +11,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarToggler">
                 <ul class="navbar-nav w-100 d-flex justify-content-evenly align-items-center">
-                    <li class="nav-item">
+                    <li class="nav-item mx-5">
                         <router-link to="/" class="nav-link">Inicio</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-5">
                         <router-link to="/menu" class="nav-link">Menu</router-link>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-5">
                         <router-link to="/orders" class="nav-link">Órdenes</router-link>
                     </li>
                 </ul>
-                <ul class="navbar-nav d-flex justify-content-evenly align-items-center">
-                    <router-link class="nav-link" @click="logout" to="/login">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="30" viewBox="0 0 24 24">
-                            <path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2H5Zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5l-5 5Z"/>
-                        </svg>
-                    </router-link>
-                    <li class="nav-item">
+                <ul class="navbar-nav d-flex justify-content-center align-items-center" style="width: 3%;">
+                    <li class="nav-item d-flex">
+                        <router-link class="nav-link" @click="logout" to="/login">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="30" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h7v2H5v14h7v2H5Zm11-4l-1.375-1.45l2.55-2.55H9v-2h8.175l-2.55-2.55L16 7l5 5l-5 5Z"/>
+                            </svg>
+                        </router-link>
                         <router-link to="/cart" class="nav-link">
                             <svg xmlns="http://www.w3.org/2000/svg" width="80" height="30" fill="currentColor"
                                 class="bi bi-cart" viewBox="0 0 16 16">
@@ -51,8 +51,4 @@ export default {
     }
 }
 </script>
-<style>
-.navbar {
-    background-color: #F7F3EB;
-}
-</style>
+<style></style>

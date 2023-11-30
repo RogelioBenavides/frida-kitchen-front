@@ -3,13 +3,12 @@
     <section class="container py-5">
         <div class="d-flex flex-column justify-content-center align-items-center text-center py-5">
             <h1 class="text-center">Carrito</h1>
-            <button class="btn btn-outline-secondary" @click="showCart">Hello There</button>
         </div>
         <center>
-            <div class="d-flex justify-content-evenly align-items-center p-3 border border-dark border-1 rounded mb-3 w-75"
-                v-for="item in cart" :key="item.id">
-                <img class="py-3 my-auto" :src="item.image_url" style="width: 4rem;">
-                <h3 class="my-auto text-center" style="width: 15%;">{{ item.meal_name }}</h3>
+            <div class="d-flex justify-content-evenly align-items-center p-3 shadow rounded mb-3 w-75"
+                v-for="item in cart" :key="item.id" style="background-color: white;">
+                <img class="py-3 my-auto" :src="item.image_url" style="width: 10rem;">
+                <h3 class="my-auto text-center" style="width: 30%;">{{ item.meal_name }}</h3>
                 <p class="my-auto text-center" style="width: 15%;">{{ item.quantity }} x {{ item.price }} = {{ item.quantity
                     * item.price }}</p>
                 <button class="btn" @click="deleteElementFromCart(item.id)">
