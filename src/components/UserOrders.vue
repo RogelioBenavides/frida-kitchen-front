@@ -1,16 +1,21 @@
 <template>
     <NavBar></NavBar>
-    <h1>Órdenes</h1>
-    <div v-for="(order, index) in orders" :key="index">
-        <div v-for="o in order" :key="o.id">
-            <h2>{{o.id}}</h2>
-            <div v-for="(meal, index) in o.meals" :key="index">
-                <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
-                <p v-if="meal.price != null">{{meal.price}}</p>
-                <p v-if="meal.quantity != null">{{meal.quantity}}</p>
+    <section class="container">
+        <h1 class="text-center py-5">Órdenes</h1>
+        <div v-for="(order, index) in orders" :key="index">
+            <div class="border rounded shadow p-5 d-flex flex-column mb-5" v-for="o in order" :key="o.id">
+                <h6>Número de Orden: {{o.id}}</h6>
+                <div class="row row-cols-2">
+                    <div class="col py-4 px-3" v-for="(meal, index) in o.meals" :key="index">
+                        <h3 v-if="meal.meal_name != null">{{meal.meal_name}}</h3>
+                        <div class="d-flex">
+                            <p v-if="meal.price != null && meal.quantity != null">{{meal.price}} x {{meal.quantity}} = {{meal.price * meal.quantity}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 <script>
 import NavBar from './NavBar.vue';
