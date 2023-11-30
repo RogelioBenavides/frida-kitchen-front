@@ -51,6 +51,9 @@ export default {
         }
     },
     mounted() {
+        if(localStorage.getItem('role') != "manager"){
+            this.$router.push('/');
+        }
         this.getOrders();
         console.log(this.orders);
     },
