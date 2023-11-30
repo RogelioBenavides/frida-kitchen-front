@@ -13,7 +13,15 @@ export default {
     },
     methods: {
         getOrders() {
-            fetch('http://35.209.86.116:5002/orders')
+            fetch('http://35.209.86.116:5002/orders', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user: localStorage.getItem('user'),
+                })
+            })
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
